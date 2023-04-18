@@ -4,7 +4,11 @@ use yew::prelude::*;
 #[derive(Debug, Clone)]
 enum Page {
     Home,
+    ConvertCompression,
     ConvertImage,
+    ConvertAudio,
+    ConvertVideo,
+    ConvertEncrypt,
 }
 
 #[function_component]
@@ -16,19 +20,27 @@ fn App() -> Html {
     };
 
     html! {
-        <div>
-            <div>
+        <>
+            <div class="sticky top-0 bg-white border-b p-3">
                 <button class="mx-3" onclick={navigate_factory(Page::Home)}>{"ホーム"}</button>
+                <button class="mx-3" onclick={navigate_factory(Page::ConvertCompression)}>{"圧縮変換"}</button>
                 <button class="mx-3" onclick={navigate_factory(Page::ConvertImage)}>{"画像変換"}</button>
+                <button class="mx-3" onclick={navigate_factory(Page::ConvertAudio)}>{"音声変換"}</button>
+                <button class="mx-3" onclick={navigate_factory(Page::ConvertVideo)}>{"映像変換"}</button>
+                <button class="mx-3" onclick={navigate_factory(Page::ConvertEncrypt)}>{"暗号変換"}</button>
             </div>
 
             {
                 match *current_page {
-                    Page::Home => html! { <Home />},
+                    Page::Home => html! { <Home /> },
+                    Page::ConvertCompression => html! { <Dummy /> },
                     Page::ConvertImage => html! { <ConvertImage /> },
+                    Page::ConvertAudio => html! { <Dummy /> },
+                    Page::ConvertVideo => html! { <Dummy /> },
+                    Page::ConvertEncrypt => html! { <Dummy /> },
                 }
             }
-        </div>
+        </>
     }
 }
 
@@ -183,6 +195,13 @@ fn ConvertImage() -> Html {
                 <img src={(*url_handle).clone()} />
             </div>
         </div>
+    }
+}
+
+#[function_component]
+fn Dummy() -> Html {
+    html! {
+        <div class="p-3">{"未実装"}</div>
     }
 }
 
