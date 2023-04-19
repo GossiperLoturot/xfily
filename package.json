@@ -1,6 +1,7 @@
 {
   "scripts": {
     "dev": "vite",
+    "wasm": "cd wasm && wasm-pack build --target web --release",
     "build": "vite build",
     "serve": "vite preview",
     "fmt": "prettier --write ./src"

@@ -1,0 +1,18 @@
+[package]
+name = "xfily"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+log = "0.4"
+wasm-logger = "0.2"
+image = { version = "0.24", default-features = false, features = ["gif", "jpeg", "png", "pnm", "tga", "tiff", "webp", "bmp"] }
+js-sys = "0.3"
+wasm-bindgen = "0.2"
+
+[profile.release]
+lto = true
+opt-level = "s"

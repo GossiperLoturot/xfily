@@ -1,2 +1,4 @@
-node_modules
+/pacakge-lock.json
+/node_modules
 /dist
+/pkg
